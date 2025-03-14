@@ -17,6 +17,20 @@ public class ImageService {
 		this.openAiImageModel=openAiImageModel;
 	}
 	
+	public ImageResponse generateImage(String prompt) {
+//		ImageResponse imageResponse = openAiImageModel.call(
+//		  new ImagePrompt(prompt));
+		  
+		ImageResponse imageResponse = openAiImageModel.call(
+		        new ImagePrompt("A light cream colored mini golden doodle",
+		        OpenAiImageOptions.builder()
+		                .quality("hd")
+		                .N(4)
+		                .height(1024)
+		                .width(1024).build())
 
+		);
+				return imageResponse;
+	}
 
 }
